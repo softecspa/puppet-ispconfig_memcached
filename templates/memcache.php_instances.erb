@@ -1,0 +1,5 @@
+<% @array_daemons.each do |daemon| -%>
+<% @array_ports.each do |port| -%>
+$MEMCACHE_SERVERS[] = '<%= daemon %>:<%= port %>';
+<% end -%>
+<% end -%>
