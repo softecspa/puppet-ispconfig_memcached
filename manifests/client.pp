@@ -22,13 +22,16 @@
 #   /var/www/cluster.$cluster.$clusterdomain/web/memcache-web${web_id}.php
 #
 define ispconfig_memcached::client (
-  $daemons      = [ "cache-${cluster}01.${backplane_domain}",
-                    "cache-${cluster}02.${backplane_domain}"],
-  $daemons_ports= '',
-  $dimension    = '128',
-  $username     = $::memcache_monitor_username,
-  $password     = $::memcache_monitor_password,
-  $web_id       = '',
+  $cluster          = $cluster,
+  $clusterdomain    = $clusterdomain,
+  $backplane_domain = $backplane_domain,
+  $daemons          = [ "cache-${cluster}01.${backplane_domain}",
+                        "cache-${cluster}02.${backplane_domain}"],
+  $daemons_ports    = '',
+  $dimension        = '128',
+  $username         = $::memcache_monitor_username,
+  $password         = $::memcache_monitor_password,
+  $web_id           = '',
 ) {
 
   if ($cluster == '') or ($backplane_domain == '') {
